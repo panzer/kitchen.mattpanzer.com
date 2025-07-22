@@ -13,8 +13,6 @@ const config = {
 		},
 		prerender: {
 			entries: [
-				'*',
-				// '/src/routes/kitchen/1/eat'
 			]
 		}
 	},

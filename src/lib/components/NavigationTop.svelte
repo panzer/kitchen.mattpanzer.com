@@ -1,6 +1,8 @@
 <script>
-	import { Navbar, NavBrand, NavUl, NavLi } from 'flowbite-svelte';
+	import { A, Navbar, NavBrand, NavUl, NavLi } from 'flowbite-svelte';
 	import { FireSolid } from 'flowbite-svelte-icons';
+
+	import { LinkHandler } from '$lib';
 </script>
 
 <Navbar>
@@ -12,7 +14,7 @@
 	</NavBrand>
 	<NavUl>
 		<NavLi>
-			<a href="/">Home</a>
+			<A href={LinkHandler('/')}>Home</A>
 		</NavLi>
 	</NavUl>
 </Navbar>

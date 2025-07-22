@@ -2,12 +2,13 @@
 	import { Button, Card, Heading, P, Indicator } from 'flowbite-svelte';
 	import { CirclePlusOutline } from 'flowbite-svelte-icons';
 	import type { Dish, DishCartInfo } from '$lib/types';
+	import { LinkHandler } from '$lib';
 
 	let { dish, cartInfo }: { dish: Dish; cartInfo?: DishCartInfo } = $props();
 </script>
 
 <Card
-	href={`/kitchen/x/eat/add-to-cart`}
+	href={LinkHandler(`/kitchen/x/eat/add-to-cart`)}
 	horizontal
 	class="relative m-4 flex h-24 w-auto flex-none flex-row justify-between sm:max-w-full md:w-md"
 >
