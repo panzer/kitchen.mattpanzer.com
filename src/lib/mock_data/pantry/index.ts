@@ -1,8 +1,19 @@
-export type PantryItemOption = {
+import type { UnitSpecifier } from "$lib/mock_data/units";
+
+export interface PantryItemOption {
     name: string,
     emoji?: string,
-    // quantifierOptions?: string[],
-} & ({ emoji: string } | { imageUrl: string })
+    imageUrl?: string,
+}
+
+export interface BaseSomePantryItem extends PantryItemOption {
+    quantity: Quantifier;
+}
+
+export type Quantifier = {
+    count: number;
+    unit: string | UnitSpecifier
+}
 
 export const items: PantryItemOption[] = [
     { name: 'apple', emoji: '🍎' },
@@ -34,6 +45,7 @@ export const items: PantryItemOption[] = [
     { name: 'napa cabbage', emoji: '🥬' },
     { name: 'octopus', emoji: '🐙' },
     { name: 'pasta', emoji: '🍝' },
+    { name: 'peanut butter', emoji: '🥜' },
     { name: 'rotini pasta', emoji: '🍝' },
     { name: 'radish', emoji: '🥗' },
     { name: 'red onion', emoji: '🧅' },

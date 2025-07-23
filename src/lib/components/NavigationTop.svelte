@@ -1,13 +1,12 @@
 <script>
 	import { A, Navbar, NavBrand, NavUl, NavLi } from 'flowbite-svelte';
-	import { FireSolid } from 'flowbite-svelte-icons';
 
 	import { LinkHandler } from '$lib';
 </script>
 
 <Navbar>
 	<NavBrand>
-		<FireSolid class="mr-3 h-6 sm:h-9" />
+		<img src="favicon.svg" class="mr-3 h-6 sm:h-9" alt="fire on a plate" />
 		<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
 			>Chef's Choice</span
 		>

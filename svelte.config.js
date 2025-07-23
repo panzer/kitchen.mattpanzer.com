@@ -7,18 +7,17 @@ const config = {
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({ fallback: "404.html" }),  // GitHub pages support
 		paths: {
-			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH,
 		},
 		prerender: {
-			entries: [
-			]
-		}
+			entries: [],
+		},
 	},
 	compilerOptions: {
-		runes: true,
-	}
+		runes: true,  // Strictly modern Svelte 5
+	},
 };
 
 export default config;
