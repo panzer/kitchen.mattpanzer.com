@@ -21,6 +21,7 @@ export const items: PantryItemOption[] = [
     { name: 'bagel', emoji: '🥯' },
     { name: 'banana', emoji: '🍌' },
     { name: 'bread', emoji: '🍞' },
+    { name: 'broccoli', emoji: '🥦' },
     { name: 'butter', emoji: '🧈' },
     { name: 'black pepper', emoji: '🧂' },
     { name: 'cabbage', emoji: '🥬' },

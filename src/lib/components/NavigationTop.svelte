@@ -6,7 +6,7 @@
 
 <Navbar>
 	<NavBrand>
-		<img src="favicon.svg" class="mr-3 h-6 sm:h-9" alt="fire on a plate" />
+		<img src={LinkHandler('/favicon.svg')} class="mr-3 h-6 sm:h-9" alt="fire on a plate" />
 		<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
 			>Chef's Choice</span
 		>

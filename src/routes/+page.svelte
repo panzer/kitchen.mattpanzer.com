@@ -1,5 +1,7 @@
 <script>
+	import { LinkHandler } from '$lib';
 	import {
+		A,
 		Button,
 		Card,
 		Heading,
@@ -61,6 +63,9 @@
 		</TableBodyRow>
 	</TableBody>
 </Table>
+
+<A href={LinkHandler('/recipe')}>Recipe Example</A>
+<A href={LinkHandler('/components')}>Component Library</A>
 
 <br />
 <Heading tag="h4">Component Playground</Heading>
