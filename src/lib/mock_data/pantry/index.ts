@@ -1,4 +1,6 @@
-import type { UnitSpecifier } from "$lib/mock_data/units";
+import { type UnitSpecifier, stringifyUnit, unitHasAbbr } from "$lib/mock_data/units";
+import type { TextLengthType, Nullable } from "$lib/types";
+import type Fraction from "fraction.js";
 
 export interface PantryItemOption {
     name: string,
@@ -10,9 +12,32 @@ export interface BaseSomePantryItem extends PantryItemOption {
     quantity: Quantifier;
 }
 
+export interface RecipeItem extends BaseSomePantryItem {
+    modifier: string;
+    isOptional: boolean;
+}
+
+type Count = number | Fraction | "some";  // 'some' means no count is shown
+
 export type Quantifier = {
-    count: number;
+    count: Count;
     unit: string | UnitSpecifier
+}
+
+function stringifyCount(c: Nullable<Count>): string {
+    if (!c || c === "some") return "";
+    if (typeof c === "number") return c.toString();
+    else return c.toFraction(true);
+}
+
+
+export function stringifyQuantifier(quantity: Quantifier, size: TextLengthType = 'default'): string {
+    if (!quantity) return "";
+    const { count, unit } = quantity;
+    const countStr = stringifyCount(count);
+    const unitStr = stringifyUnit(unit, size);
+    const hasSpaceBetween = size !== 'short' || !unitHasAbbr(unit);
+    return `${countStr}${hasSpaceBetween ? '\u00A0' : ''}${unitStr}`.trim();
 }
 
 export const items: PantryItemOption[] = [

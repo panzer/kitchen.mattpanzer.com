@@ -1,5 +1,6 @@
 <script lang="ts" generics="T">
 	import { getContext } from 'svelte';
+	import { Kbd } from 'flowbite-svelte';
 	import { type InputProps, type InputValue } from '$lib/types/input';
 	import { type SizeType } from '$lib/types';
 	import { cn } from '$lib';
@@ -94,7 +95,7 @@
 
 	function updateSuggestions() {
 		if (!isCombobox || !isFocused) {
-			filteredSuggestions = [];
+			// filteredSuggestions = [];
 			return;
 		}
 
@@ -159,7 +160,7 @@
 		setTimeout(() => {
 			isFocused = false;
 			backspaceUsed = false; // Reset flag when focus is lost
-			filteredSuggestions = [];
+			// filteredSuggestions = [];
 		}, 200);
 	}
 
@@ -267,19 +268,19 @@
 			{@render inputContent()}
 		{/if}
 
-		{#if isCombobox && isFocused && filteredSuggestions.length > 0}
+		{#if isCombobox && filteredSuggestions.length > 0}
 			<div class={combo({ class: clsx(comboClass) })}>
 				{#each filteredSuggestions as item, i}
 					<button
 						type="button"
-						class="space-between flex w-full px-3 py-2 {i === selectedIndex
+						class="flex w-full flex-row items-center justify-between px-3 py-2 {i === selectedIndex
 							? 'bg-gray-100 dark:bg-gray-700'
 							: 'hover:bg-gray-50 dark:hover:bg-gray-700'} focus:outline-none"
 						onclick={() => selectItem(item)}
 						onmouseenter={() => (selectedIndex = i)}
 					>
 						<p class={comboItemClass}>{toStr(item)}</p>
-						{#if i === selectedIndex}<kbd class="ml-4">⏎</kbd>{/if}
+						{#if i === selectedIndex}<Kbd class="ml-4">⏎</Kbd>{/if}
 					</button>
 				{/each}
 			</div>

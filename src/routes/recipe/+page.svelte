@@ -16,52 +16,11 @@
 	import { BookmarkOutline, ShareAllOutline } from 'flowbite-svelte-icons';
 
 	import PantryItemCard from '$lib/components/PantryItemCard';
+	import RecipeItem from '$lib/components/RecipeItem.svelte';
+	import { recipe_carbonara as recipe } from '$lib/mock_data/recipes/carbonara';
+	import { stringifyQuantifier } from '$lib/mock_data/pantry';
 
 	// Example recipe data (replace with real data or props)
-	const recipe = {
-		title: 'Classic Spaghetti Carbonara',
-		heroImage:
-			'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
-		description:
-			'A creamy, savory Italian pasta dish made with eggs, cheese, pancetta, and pepper.',
-		servings: 4,
-		metadata: {
-			prepTime: '15 min',
-			cookTime: '20 min',
-			difficulty: 'Easy',
-			cuisine: 'Italian'
-		},
-		ingredients: [
-			'400g spaghetti',
-			'150g pancetta',
-			'2 large eggs',
-			'1 cup grated Parmesan cheese',
-			'2 cloves garlic, minced',
-			'Salt & freshly ground black pepper',
-			'Fresh parsley, chopped (optional)'
-		],
-		instructions: [
-			'Cook spaghetti in a large pot of salted boiling water until al dente. Reserve 1/2 cup pasta water, then drain.',
-			'In a pan, cook pancetta over medium heat until crispy. Add garlic and sauté for 1 minute.',
-			'In a bowl, whisk eggs and Parmesan together.',
-			'Add drained spaghetti to the pan with pancetta. Remove from heat.',
-			'Quickly pour egg mixture over pasta, tossing rapidly to coat (add reserved pasta water as needed for creaminess).',
-			'Season with salt and plenty of black pepper. Garnish with parsley and extra cheese.'
-		],
-		tags: ['Dinner'],
-		relatedRecipes: [
-			{
-				title: 'Pesto Pasta',
-				image:
-					'https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=400&q=80'
-			},
-			{
-				title: 'Lasagna',
-				image:
-					'https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=400&q=80'
-			}
-		]
-	};
 
 	function saveRecipe() {
 		// Placeholder for save logic
@@ -103,7 +62,7 @@
 				<Heading tag="h4" class="mb-2">Ingredients</Heading>
 				<ul class="list-inside list-disc space-y-1">
 					{#each recipe.ingredients as ingredient}
-						<li>{ingredient}</li>
+						<li><RecipeItem item={ingredient} /></li>
 					{/each}
 				</ul>
 			</div>

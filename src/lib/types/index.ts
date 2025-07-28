@@ -1,4 +1,8 @@
+export type Nullable<T> = T | null | undefined;
+
 export declare type SizeType = "xs" | "sm" | "md" | "lg" | "xl"
+
+export type TextLengthType = "default" | "short";
 
 export * from "./theme";
 

@@ -64,8 +64,11 @@
 	</TableBody>
 </Table>
 
-<A href={LinkHandler('/recipe')}>Recipe Example</A>
-<A href={LinkHandler('/components')}>Component Library</A>
+<Heading tag="h4">Navigation</Heading>
+<ul>
+	<li><A href={LinkHandler('/recipe')}>Recipe Example</A></li>
+	<li><A href={LinkHandler('/components')}>Component Library</A></li>
+</ul>
 
 <br />
 <Heading tag="h4">Component Playground</Heading>
